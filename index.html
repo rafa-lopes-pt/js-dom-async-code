@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Countdown</title>
+		<style>
+			body {
+				display: flex;
+				place-content: center;
+				place-items: center;
+			}
+			.time.finished {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>Countdown</h1>
+			<span class="time"></span>
+		</div>
+	</body>
+
+	<script>
+		const timeEl = document.querySelector(".time");
+		let time = 3;
+
+		let id = setInterval(() => {
+			timeEl.textContent = time--;
+			if (time < 0) {
+				clearInterval(id);
+				timeEl.classList.add("finished");
+			}
+		}, 1000);
+
+		if (time <= 0) clearInterval(id);
+	</script>
+</html>
